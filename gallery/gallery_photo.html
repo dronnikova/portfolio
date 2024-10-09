@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Портфолио</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <h1>Анна Дроннйкова</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../about.html">Обо мне</a></li>
+          <li class="dropdown"><a href="#" class="active"><span>Портфолио</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="gallery_photo.html">Фото</a></li>
+              <li><a href="gallery_video.html">Видео</a></li>
+            </ul>
+          </li>
+          <li><a href="../contact.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 id="photo-count">ФОТО</h2>
+            <p>Добро пожаловать в мое портфолио фотографий! Здесь вы найдете подборку моих лучших работ, от пейзажей до концертных сцен. Вы можете отфильтровать с помощью кнопок ниже. Приятного просмотра!</p>
+            <a class="cta-btn" href="../contact.html">Связаться</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section id="filter">
+      <div class="container text-center">
+        <button class="filter-btn" onclick="filterSelection('all')">Всё</button>
+        <button class="filter-btn" onclick="filterSelection('people')">Люди</button>
+        <button class="filter-btn" onclick="filterSelection('architecture')">Архитектура</button>
+        <button class="filter-btn" onclick="filterSelection('nature')">Природа</button>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container-fluid">
+        <div class="row gy-4 justify-content-center" id="gallery-container">
+          <!-- Галерея будет сгенерирована через JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><a href="https://github.com/SeVaSe" target="_blank"><span>sevase technology</span></a></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <!-- Custom JS for Gallery -->
+  <script>
+    const galleryImages = [
+      { src: "../assets/img/gallery/image/ph20.jpg", title: "Вальс", category: "people" },
+      { src: "../assets/img/gallery/image/ph24.jpg", title: "Морской пейзаж", category: "nature" },
+      { src: "../assets/img/gallery/image/ph15.jpg", title: "Фотосессия на море", category: "people" },
+      { src: "../assets/img/gallery/image/ph22.jpg", title: "Цветы. Макросъемка", category: "nature" },
+      { src: "../assets/img/gallery/image/ph3.jpg", title: "Городской пейзаж", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph12.jpg", title: "Семейная фотосессия", category: "people" },
+      { src: "../assets/img/gallery/image/ph23.jpg", title: "Водные лилии", category: "nature" },
+      { src: "../assets/img/gallery/image/ph11.jpg", title: "Мастер в работе", category: "people" },
+      { src: "../assets/img/gallery/image/ph18.jpg", title: "Танец в лесу", category: "people" },
+      { src: "../assets/img/gallery/image/ph7.jpg", title: "Музей Христианства", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph19.jpg", title: "Владимир Верхошинский на выступлении", category: "people" },
+      { src: "../assets/img/gallery/image/ph21.jpg", title: "Ромашка", category: "nature" },
+      { src: "../assets/img/gallery/image/ph25.jpg", title: "Морской пейзаж", category: "nature" },
+      { src: "../assets/img/gallery/image/ph9.jpg", title: "Макросъемка тату", category: "people" },
+      { src: "../assets/img/gallery/image/ph8.jpg", title: "Архитектура", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph13.jpg", title: "Портрет на пляже", category: "people" },
+      { src: "../assets/img/gallery/image/ph16.jpg", title: "Уличный портрет", category: "people" },
+      { src: "../assets/img/gallery/image/ph5.jpg", title: "Архитектура", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph6.jpg", title: "Статуя", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph4.jpg", title: "Архитекутра. Интерьер", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph1.jpg", title: "У воды", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph17.jpg", title: "Танец под дождем", category: "people" },
+      { src: "../assets/img/gallery/image/ph2.jpg", title: "Зиплайн", category: "architecture" },
+      { src: "../assets/img/gallery/image/ph14.jpg", title: "Фото на пляже", category: "people" }
+    ];
+
+    // Генерация галереи
+    function displayGallery(images) {
+      const container = document.getElementById('gallery-container');
+      container.innerHTML = ''; // Очистить контейнер перед добавлением изображений
+      images.forEach(image => {
+        const galleryItem = `
+          <div class="col-lg-3 col-md-4">
+            <div class="gallery-item">
+              <a href="${image.src}" class="glightbox" data-glightbox="title: ${image.title}">
+                <img src="${image.src}" alt="${image.title}" class="img-fluid">
+              </a>
+            </div>
+          </div>`;
+        container.innerHTML += galleryItem;
+      });
+
+      // Инициализация Glightbox после обновления галереи
+      const lightbox = GLightbox({ selector: '.glightbox' });
+    }
+
+    // Фильтрация галереи
+    function filterSelection(category) {
+      const filteredImages = category === 'all' ? galleryImages : galleryImages.filter(image => image.category === category);
+      displayGallery(filteredImages);
+    }
+
+    // Инициализация
+    window.onload = function() {
+      displayGallery(galleryImages); // Изначальная загрузка всех изображений
+    };
+  </script>
+
+</body>
+</html>

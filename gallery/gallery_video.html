@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Портфолио</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <h1>Анна Дроннйкова</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="../index.html">Главная</a></li>
+          <li><a href="../about.html">Обо мне</a></li>
+          <li class="dropdown"><a href="#" class="active"><span>Портфолио</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="gallery_photo.html">Фото</a></li>
+              <li><a href="gallery_video.html">Видео</a></li>
+            </ul>
+          </li>
+          <li><a href="../contact.html">Контакты</a></li>
+        </ul>
+      </nav>
+
+      
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main" data-aos="fade" data-aos-delay="1500">
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2 id="video-count">ВИДЕО</h2>
+            <p>Добро пожаловать в мое портфолио видеороликов! Здесь есть обучающие видеоролики, а также репортажи с мероприятий. Приятного просмотра!</p>
+            <a class="cta-btn" href="../contact.html">Связаться</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Gallery Section -->
+    <section id="gallery" class="gallery">
+      <div class="container-fluid">
+        <div class="row gy-4 justify-content-center" id="gallery-container">
+          <!-- Галерея будет сгенерирована через JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><a href="https://github.com/SeVaSe" target="_blank"><span>sevase technology</span></a></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader">
+    <div class="line"></div>
+  </div>
+
+  <!-- JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+  <!-- Custom JS for Video Gallery -->
+  <script>
+    // Массив с видео
+  const galleryVideos = [
+    { src: "https://rutube.ru/play/embed/d0a3f937b94773ae12a8970e4b55548a/?autoplay=0", title: "Образовательный курс", category: "architecture" },
+    { src: "https://rutube.ru/play/embed/74ca28a60fd97f5351a46211d5c54c2d/?autoplay=0", title: "Репортаж с выпускного", category: "nature" },
+    { src: "https://rutube.ru/play/embed/1648cdf6b81e7bf6dc7f4eabbd4f1172/?autoplay=0", title: "Промо Университета", category: "people" },
+    { src: "https://rutube.ru/play/embed/4f82946e94c965aca5e263a587ad3a98/?autoplay=0", title: "Репортаж с концерта", category: "architecture" },
+    { src: "https://rutube.ru/play/embed/413f1483a8b5e16a2e8fbbd66d3d4e52/?autoplay=0", title: "Танцевальное шоу", category: "nature" },
+    { src: "https://rutube.ru/play/embed/f009806f1764ddf7619d3d472471d4f6/?autoplay=0", title: "Паркур-шоу", category: "people" }
+  ];
+
+  // Функция для отображения галереи
+  function displayGallery(videos) {
+    const container = document.getElementById('gallery-container');
+    container.innerHTML = ''; // Очистить контейнер перед добавлением видео
+    videos.forEach(video => {
+      const galleryItem = `
+        <div class="col-lg-4 col-md-6 col-sm-12"> <!-- Колонки Bootstrap для 3 видео на больших экранах -->
+          <div class="gallery-item">
+            <iframe width="100%" height="auto" src="${video.src}" frameborder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <p>${video.title}</p>
+          </div>
+        </div>`;
+      container.innerHTML += galleryItem;
+    });
+  }
+
+  // Фильтрация галереи
+  function filterSelection(category) {
+    const filteredVideos = category === 'all' ? galleryVideos : galleryVideos.filter(video => video.category === category);
+    displayGallery(filteredVideos);
+  }
+
+  // Инициализация
+  window.onload = function() {
+    displayGallery(galleryVideos); // Изначальная загрузка всех видео
+  };
+
+</script>
+
+
+</body>
+</html>
